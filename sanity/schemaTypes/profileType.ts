@@ -1,4 +1,3 @@
-import { UserIcon } from "@sanity/icons";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const profileType = defineType({
@@ -7,10 +6,65 @@ export const profileType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "profile_image",
+      title: "Profile Image",
+      description: "Image to be shown in the hero section.",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Alternative Text",
+          description: "Important for SEO and accessiblity.",
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
       name: "title",
       title: "Title",
       description: "Title to display on your Hero Section.",
       type: "string",
+    }),
+    defineField({
+      name: "social_links",
+      title: "Social Links",
+      description: "Social links to navigate from your website.",
+      type: "object",
+      fields: [
+        {
+          name: "instagram",
+          title: "Instagram URL",
+          type: "url",
+          placeholder: "https://instagram.com/",
+        },
+        {
+          name: "linkedin",
+          title: "Linkedin URL",
+          type: "url",
+          placeholder: "https://linkedin.com/",
+        },
+        {
+          name: "behance",
+          title: "Behance URL",
+          type: "url",
+          placeholder: "https://behance.com/",
+        },
+      ],
+      options: {
+        collapsed: false,
+        collapsible: true,
+        columns: 3,
+      },
+    }),
+    defineField({
+      name: "skills",
+      title: "Skills",
+      type: "array",
+      description: "Add a list of skills",
+      of: [{ type: "string" }],
     }),
   ],
 });

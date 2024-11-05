@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
+import { fontInstrumentSerif, fontOutfit } from "../fonts";
+import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 
 export const metadata: Metadata = {
   title: "Aniket Banerjee",
@@ -14,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` antialiased`}
+        className={`${fontOutfit.variable} ${fontInstrumentSerif.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
