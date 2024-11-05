@@ -3,6 +3,7 @@ import { Outfit, Instrument_Serif } from "next/font/google";
 // Font Outfit
 export const fontOutfit = Outfit({
   weight: ["400", "500"],
+  style: ["normal"],
   variable: "--font-outfit",
   subsets: ["latin"],
 });

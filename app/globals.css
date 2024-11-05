@@ -32,6 +32,26 @@
   main {
     @apply flex-grow;
   }
+
+  .prose h1,
+  h1 {
+    @apply text-[28px] leading-[38px] md:text-[52px] md:leading-[62px] lg:text-[62px] lg:leading-[78px] font-normal;
+  }
+
+  .prose h2,
+  h2 {
+    @apply text-[24px] leading-[32px] md:text-[42px] lg:text-[52px] md:leading-[64px] font-medium;
+  }
+
+  .prose h3,
+  h3 {
+    @apply md:text-[32px] lg:text-[42px] leading-normal font-normal;
+  }
+
+  .prose h4,
+  h4 {
+    @apply text-[12px] md:text-[28px] lg:text-[32px] leading-[42px] font-normal;
+  }
 }
 
 @media (max-width: 1024px) {

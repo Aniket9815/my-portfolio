@@ -6,7 +6,7 @@ export default async function Header() {
   const profile = await getProfile();
   
   return (
-    <header className="sticky top-0 container">
+    <header className="sticky top-0 container z-40">
       <Navbar profile={profile} />
     </header>
   );

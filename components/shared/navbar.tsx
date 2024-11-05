@@ -48,9 +48,11 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
 
   return (
     <nav
-      className={`${!navAtTop && "bg-white shadow-lg px-6 rounded-full"} flex items-center justify-between my-2 py-2 transition-all duration-300 ease-in-out`}
+      className={`${!navAtTop && "bg-white shadow-lg px-6 rounded-full"} flex items-center justify-between my-3 py-2 transition-all duration-300 ease-in-out`}
     >
-      <h1 className="text-2xl font-instrument_serif italic">Aniket</h1>
+      <Link href="/" className="text-2xl font-instrument_serif italic">
+        Aniket
+      </Link>
 
       <div className="relative">
         <div className="bg-primary-50 w-[52px] h-[52px] rounded-full flex items-center justify-center">

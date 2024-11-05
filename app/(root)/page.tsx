@@ -1,19 +1,13 @@
-import { getProjects } from "@/actions/project.actions";
-import Link from "next/link";
+import Hero from "@/components/containers/hero";
+import Projects from "@/components/containers/projects";
+import Skills from "@/components/containers/skills";
 
-export default async function Home() {
-  const projects: ProjectType[] = await getProjects();
-
-  if (!projects.length) return <div>No projects to display!</div>;
-
+export default function Home() {
   return (
-    <main className="min-h-screen">
-      {projects.map((item) => (
-        <div key={item._id} className="my-5">
-          <p>{item.title}</p>
-          <Link href={`/${item.slug}`}>Details</Link>
-        </div>
-      ))}
+    <main>
+      <Hero />
+      <Projects />
+      <Skills />
     </main>
   );
 }
