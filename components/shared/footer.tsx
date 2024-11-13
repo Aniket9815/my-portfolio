@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBehance, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import { getProfile } from "@/actions/profile.actions";
 
 export default async function Footer() {
