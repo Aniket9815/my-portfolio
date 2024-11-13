@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBehance, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { getProfile } from "@/actions/profile.actions";
 
 export default async function Footer() {
@@ -48,12 +48,12 @@ export default async function Footer() {
           <p className="text-sm lg:text-2xl text-primary-200">
             Let&rsquo;s turn ideas into reality—drop me a line
           </p>
-          <Button
-            variant="outline"
-            className="w-[140px] h-[62px] lg:w-[178px] lg:h-[77px] border-4 border-primary-400 lg:text-xl text-white mt-12"
+          <Link
+            href={`mailto:${profile.email}`}
+            className={`${buttonVariants({ variant: "outline" })} w-[140px] h-[62px] lg:w-[178px] lg:h-[77px] border-4 border-primary-400 lg:text-xl text-white mt-12`}
           >
             Contact <HiMiniArrowUpRight className="w-10 h-10" />
-          </Button>
+          </Link>
         </div>
 
         <div className="w-full h-[1px] bg-gradient-to-r from-primary-700 via-primary-500 to-primary-700" />
