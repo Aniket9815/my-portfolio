@@ -10,6 +10,8 @@ declare type ProfileType = {
     linkedin: string;
   };
   skills: string[];
+  resume: string;
+  email: string;
 };
 
 declare type ProjectType = {

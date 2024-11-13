@@ -29,6 +29,23 @@ export const profileType = defineType({
       type: "string",
     }),
     defineField({
+      name: "resume",
+      title: "Resume",
+      description: "Upload your resume file.",
+      type: "file",
+      options: {
+        accept: ".pdf,.doc,.docx", // Restrict to common resume formats
+      },
+    }),
+    defineField({
+      name: "email",
+      title: "Email Address",
+      description: "Email address to open when clicking 'Let's connect'.",
+      type: "string",
+      validation: (Rule) =>
+        Rule.email().error("Please enter a valid email address."),
+    }),
+    defineField({
       name: "social_links",
       title: "Social Links",
       description: "Social links to navigate from your website.",

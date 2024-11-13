@@ -8,7 +8,9 @@ export const PROFILE_QUERY = defineQuery(`
             "alt": profile_image.alt,
         },
         social_links,
-        skills
+        skills,
+        "resume": resume.asset->url,
+        email
     }
 `);
 
