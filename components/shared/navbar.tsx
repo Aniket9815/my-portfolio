@@ -26,9 +26,9 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
   };
 
   const links = [
-    { label: "Work", link: "/" },
-    { label: "About", link: "/" },
-    { label: "Contact", link: "/" },
+    { label: "Work", link: "#work" },
+    { label: "About", link: "#about" },
+    { label: "Contact", link: "#contact" },
   ];
 
   const socialLinks = [
@@ -59,6 +59,7 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
           <Hamburger
             size={20}
             color="#1C1B1F"
+            toggled={isOpen}
             onToggle={() => setIsOpen((isOpen) => !isOpen)}
           />
         </div>
@@ -67,12 +68,14 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
           initial="initial"
           animate={isOpen ? "open" : "closed"}
           variants={navVariants}
-          className="absolute right-0 mt-4 bg-primary-50 w-[250px] rounded-[20px] p-5 -z-10 shadow-lg border space-y-5"
+          className="absolute right-0 mt-4 bg-primary-50 w-[250px] rounded-[20px] p-5 -z-10 shadow-lg space-y-5"
         >
           <ul className="space-y-5">
             {links.map((item, index) => (
               <li key={index} className="text-xl">
-                <Link href={item.link}>{item.label}</Link>
+                <Link href={item.link} onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -82,9 +85,9 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
               <Link
                 key={index}
                 href={item.link}
-                className="w-full py-2 border border-primary-100 rounded-full flex items-center justify-center"
+                className="w-full py-2 border border-primary-100 rounded-full flex items-center justify-center hover:bg-stone-200"
               >
-                <item.icon className="text-primary-200 text-xl" />
+                <item.icon className="text-primary-300 text-xl" />
               </Link>
             ))}
           </div>

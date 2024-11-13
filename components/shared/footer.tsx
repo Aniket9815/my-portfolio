@@ -22,8 +22,9 @@ export default async function Footer() {
       link: profile.social_links.behance,
     },
   ];
+
   return (
-    <footer className="relative">
+    <footer id="contact" className="relative z-40">
       <Image
         src={BGImg}
         alt="img"
@@ -64,7 +65,7 @@ export default async function Footer() {
               <Link
                 key={index}
                 href={item.link}
-                className="w-[68px] py-2 border border-primary-400 rounded-[71px]"
+                className="w-[68px] py-2 border border-primary-400 rounded-[71px] hover:bg-[#101010]"
               >
                 <item.icon className="mx-auto text-2xl" />
               </Link>
