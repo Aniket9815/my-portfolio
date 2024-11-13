@@ -2,7 +2,6 @@ import { getProjectBySlug, getProjects } from "@/actions/project.actions";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import * as motion from "framer-motion/client";
-import ScrollProgress from "@/components/shared/scroll-progress";
 
 export const dynamicParams = true; // or false, to 404 on unknown paths
 

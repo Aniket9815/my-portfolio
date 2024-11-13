@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { getProfile } from "@/actions/profile.actions";
-import { AnimationExample, MotionChild } from "../shared/motion-wrappers";
 import * as motion from "framer-motion/client";
 
 export default async function Hero() {
@@ -38,7 +37,6 @@ export default async function Hero() {
       className="container flex flex-col items-center gap-10 lg:gap-14 py-12 lg:py-12"
     >
       {/* Hero Image */}
-      {/* <div className="w-[115.43px] lg:w-[201px] h-[64px] lg:h-[101px]"> */}
       <motion.div
         variants={item}
         className="w-[115.43px] lg:w-[201px] h-[64px] lg:h-[101px]"
@@ -53,7 +51,6 @@ export default async function Hero() {
           />
         </div>
       </motion.div>
-      {/* </div> */}
 
       <div className="flex flex-col items-center gap-6 lg:gap-8">
         {/* Namaste! */}
