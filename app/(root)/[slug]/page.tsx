@@ -66,7 +66,7 @@ export default async function ProjectDescription({
         initial="hidden"
         animate="visible"
         variants={container}
-        className="container py-12"
+        className="container py-12 space-y-8"
       >
         <div className="space-y-2">
           <div className="space-y-1">
