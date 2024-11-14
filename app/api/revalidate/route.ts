@@ -34,26 +34,19 @@ export async function POST(req: NextRequest) {
     // `{next: {tags: ['post']}}` will be revalidated
     revalidateTag(body._type);
 
-    const vercelToken = process.env.VERCEL_TOKEN;
-    const vercelProjectId = process.env.VERCEL_PROJECT_ID;
-
-    if (vercelToken && vercelProjectId) {
-      const response = await fetch(
-        `https://api.vercel.com/v1/projects/${vercelProjectId}/preview-deployments`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${vercelToken}`,
-          },
-        }
-      );
-
-      if (!response.ok) {
-        console.error(
-          "Error triggering Vercel Preview Deployment:",
-          response.statusText
-        );
+    // Trigger the Vercel deployment URL
+    const vercelResponse = await fetch(
+      "https://api.vercel.com/v1/integrations/deploy/prj_9VHUVUdr5MEetAZmEoKaBxV2IGNZ/QSRd5k4MgR",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
+    );
+
+    if (!vercelResponse.ok) {
+      throw new Error("Failed to trigger Vercel deployment");
     }
 
     return NextResponse.json({ body });
