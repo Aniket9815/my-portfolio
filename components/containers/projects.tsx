@@ -48,7 +48,8 @@ export default async function Projects() {
           variants={aniItem}
           className="w-[42%] text-xs lg:text-xl text-muted"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          &#x0022;Every project tells a story of creativity, purpose, and
+          innovation—here&#x275C;s how I bring ideas alive.&#x0022;
         </motion.p>
       </motion.div>
       <div className="grid border-y divide-y py-[64px] lg:py-[90px]">
