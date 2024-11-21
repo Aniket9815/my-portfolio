@@ -30,24 +30,7 @@ export async function POST(req: NextRequest) {
       return new Response(JSON.stringify({ message, body }), { status: 400 });
     }
 
-    // If the `_type` is `post`, then all `client.fetch` calls with
-    // `{next: {tags: ['post']}}` will be revalidated
     revalidateTag(body._type);
-
-    // Trigger the Vercel deployment URL
-    const vercelResponse = await fetch(
-      "https://api.vercel.com/v1/integrations/deploy/prj_9VHUVUdr5MEetAZmEoKaBxV2IGNZ/QSRd5k4MgR",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    if (!vercelResponse.ok) {
-      throw new Error("Failed to trigger Vercel deployment");
-    }
 
     return NextResponse.json({ body });
   } catch (err) {

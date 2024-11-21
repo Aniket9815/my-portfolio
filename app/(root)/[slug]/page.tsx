@@ -2,6 +2,7 @@ import { getProjectBySlug, getProjects } from "@/actions/project.actions";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import * as motion from "framer-motion/client";
+import ScrollProgress from "@/components/shared/scroll-progress";
 
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
@@ -30,7 +31,7 @@ export default async function ProjectDescription({
           alt="img"
           width={1440}
           height={500}
-          className="w-full h-[218px] lg:h-[500px] rounded-[20px] object-cover"
+          className="w-full h-full lg:h-full rounded-[20px] object-cover"
         />
       ),
     },
@@ -60,9 +61,10 @@ export default async function ProjectDescription({
   };
 
   return (
-    <main>
-      {/* <ScrollProgress /> */}
+    <main className="relative flex flex-col items-center">
+      <ScrollProgress />
       <motion.section
+        id="scroll-target"
         initial="hidden"
         animate="visible"
         variants={container}

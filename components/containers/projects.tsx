@@ -91,20 +91,22 @@ export default async function Projects() {
               </motion.div>
             </motion.div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={aniItem}
-              viewport={{ once: true }}
-              className="relative w-full h-[218px] lg:w-[510px] lg:h-[605px] rounded-[20px] overflow-hidden"
-            >
-              <Image
-                src={item.featured_image.url}
-                alt={item.featured_image.alt}
-                fill
-                className="object-cover hover:scale-105 transition-all ease-in-out"
-              />
-            </motion.div>
+            <Link href={`/${item.slug}`}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                variants={aniItem}
+                viewport={{ once: true }}
+                className="relative w-full h-[218px] lg:w-[510px] lg:h-[605px] rounded-[20px] overflow-hidden"
+              >
+                <Image
+                  src={item.featured_image.url}
+                  alt={item.featured_image.alt}
+                  fill
+                  className="object-cover hover:scale-105 transition-all ease-in-out"
+                />
+              </motion.div>
+            </Link>
           </div>
         ))}
       </div>

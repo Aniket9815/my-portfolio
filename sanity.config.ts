@@ -26,12 +26,5 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
-    webhooksTrigger({
-      // title: 'Deploy',
-      // text: 'Custom text',
-      // encryptionSalt: 'replace-me-with-a-strong-string',
-      // /** You can customize the event type name to trigger on your Github workflows */
-      // githubEventType: 'webhook-trigger',
-    }),
   ],
 });
