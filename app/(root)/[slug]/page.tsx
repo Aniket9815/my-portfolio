@@ -14,6 +14,17 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const project: ProjectType = await getProjectBySlug((await params).slug);
+  return {
+    title: project?.title,
+  };
+}
+
 export default async function ProjectDescription({
   params,
 }: {
