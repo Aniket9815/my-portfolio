@@ -19,6 +19,7 @@ declare type ProjectType = {
   slug: string;
   title: string;
   category: string;
+  description: string;
   featured_image: { url: string; alt: string };
   body: TypedObject | TypedObject[];
   creation_date: string;

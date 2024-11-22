@@ -1,10 +1,12 @@
 "use client";
 
-import { useScroll, motion, useTransform } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useScroll, motion, useTransform } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 
 export default function ScrollProgress() {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
 
@@ -33,9 +35,10 @@ export default function ScrollProgress() {
     return () => unsubscribe(); // Cleanup listener
   }, [scrollYProgress]);
   return (
-    <motion.div
+    <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
+      onClick={() => router.back()}
       className="fixed bottom-14 bg-white flex items-center justify-center rounded-full z-30"
     >
       <IoClose className="absolute" />
@@ -64,6 +67,6 @@ export default function ScrollProgress() {
           style={{ strokeDashoffset }}
         />
       </svg>
-    </motion.div>
+    </motion.button>
   );
 }

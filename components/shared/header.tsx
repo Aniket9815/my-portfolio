@@ -4,9 +4,9 @@ import Navbar from "./navbar";
 
 export default async function Header() {
   const profile = await getProfile();
-  
+
   return (
-    <header className="sticky top-0 container z-40">
+    <header className="sticky top-0 container z-50">
       <Navbar profile={profile} />
     </header>
   );

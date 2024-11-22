@@ -20,6 +20,7 @@ export const PROJECTS_QUERY = defineQuery(`
         "slug":slug.current,
         title,
         category,
+        description,
         "featured_image": {
             "url": featured_image.asset->url,
             "alt": featured_image.alt,
@@ -34,6 +35,7 @@ export const PROJECT_QUERY = defineQuery(`
         "slug":slug.current,
         title,
         category,
+        description,
         "featured_image": {
             "url": featured_image.asset->url,
             "alt": featured_image.alt,

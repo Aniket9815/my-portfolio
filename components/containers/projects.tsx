@@ -63,7 +63,7 @@ export default async function Projects() {
               whileInView="visible"
               variants={container}
               viewport={{ once: true }}
-              className="w-full lg:w-1/2 flex lg:flex-col max-md:items-end max-md:justify-between gap-12"
+              className="w-full lg:w-1/2 flex flex-col max-md:items-end max-md:justify-between gap-4 lg:gap-12"
             >
               <div className="space-y-2">
                 <div>
@@ -81,6 +81,7 @@ export default async function Projects() {
                   </motion.p>
                 </div>
                 <motion.h3 variants={aniItem}>{item.title}</motion.h3>
+                <motion.p variants={aniItem} className="max-lg:text-sm text-primary-300">{item.description}</motion.p>
               </div>
               <motion.div variants={aniItem}>
                 <Link
@@ -92,13 +93,13 @@ export default async function Projects() {
               </motion.div>
             </motion.div>
 
-            <Link href={`/${item.slug}`}>
+            <Link href={`/${item.slug}`} className="w-full lg:w-[510px]">
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 variants={aniItem}
                 viewport={{ once: true }}
-                className="relative w-full h-[218px] lg:w-[510px] lg:h-[605px] rounded-[20px] overflow-hidden"
+                className="relative w-full h-[218px] lg:h-[605px] rounded-[20px] overflow-hidden"
               >
                 <Image
                   src={item.featured_image.url}

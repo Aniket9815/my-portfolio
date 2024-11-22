@@ -20,9 +20,21 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
   });
 
   const navVariants = {
-    open: { opacity: 1, y: 0 },
-    closed: { opacity: 0, y: "-20%" },
-    initial: { opacity: 0, y: "-20%" },
+    initial: { opacity: 0, y: "-20%", scaleY: 0, originY: "top" },
+    open: {
+      opacity: 1,
+      y: 0,
+      scaleY: 1,
+      originY: "top",
+      transition: { ease: "easeInOut" },
+    },
+    closed: {
+      opacity: 0,
+      y: "-20%",
+      scaleY: 0,
+      originY: "top",
+      transition: { ease: "easeInOut" },
+    },
   };
 
   const links = [
