@@ -1,0 +1,14 @@
+{
+  "name": "Aniket Banerjee",
+  "short_name": "Aniket",
+  "description": "My personal portfolio website.",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
