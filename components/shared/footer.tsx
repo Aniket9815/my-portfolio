@@ -28,8 +28,8 @@ export default async function Footer() {
       <Image
         src={BGImg}
         alt="img"
-        priority
         fill
+        loading="lazy"
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-black/40" />
