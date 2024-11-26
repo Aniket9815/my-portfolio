@@ -1,4 +1,4 @@
-import { ProjectsIcon } from "@sanity/icons";
+import { ProjectsIcon, ImageIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const projectType = defineType({
@@ -78,6 +78,7 @@ export const projectType = defineType({
         },
         {
           type: "image",
+          icon: ImageIcon,
           options: {
             hotspot: true,
           },
