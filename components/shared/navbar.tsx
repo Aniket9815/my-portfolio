@@ -45,14 +45,17 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
 
   const socialLinks = [
     {
+      name: "Instagram",
       icon: FaInstagram,
       link: profile.social_links.instagram,
     },
     {
+      name: "LinkedIn",
       icon: FaLinkedinIn,
       link: profile.social_links.linkedin,
     },
     {
+      name: "Behance",
       icon: FaBehance,
       link: profile.social_links.behance,
     },
@@ -73,6 +76,7 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
             color="#1C1B1F"
             toggled={isOpen}
             onToggle={() => setIsOpen((isOpen) => !isOpen)}
+            aria-label="Toggle Menu"
           />
         </div>
 
@@ -97,6 +101,7 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
               <Link
                 key={index}
                 href={item.link}
+                aria-label={item.name}
                 className="w-full py-2 border border-primary-100 rounded-full flex items-center justify-center hover:bg-stone-200"
               >
                 <item.icon className="text-primary-300 text-xl" />
