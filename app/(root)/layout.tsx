@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   authors: [
     { name: "Aniket Banerjee", url: "https://aniketbanerjee.vercel.app/" },
   ],
-  viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     title: "Aniket Banerjee",
     description: "My personal portfolio website.",
