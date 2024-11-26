@@ -36,12 +36,14 @@ export default async function ProjectDescription({
 
   const myPortableTextComponents = {
     types: {
-      image: ({ value }: { value: { url: string } }) => (
+      image: ({ value }: { value: { url: string; alt: string } }) => (
         <Image
           src={value.url}
-          alt="img"
+          alt={value.alt || "Image"}
           width={1440}
           height={500}
+          quality={100}
+          priority
           className="w-full h-full lg:h-full rounded-[20px] object-cover"
         />
       ),

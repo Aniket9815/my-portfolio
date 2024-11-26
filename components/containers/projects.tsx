@@ -81,7 +81,12 @@ export default async function Projects() {
                   </motion.p>
                 </div>
                 <motion.h3 variants={aniItem}>{item.title}</motion.h3>
-                <motion.p variants={aniItem} className="max-lg:text-sm text-primary-300">{item.description}</motion.p>
+                <motion.p
+                  variants={aniItem}
+                  className="max-lg:text-sm text-primary-300"
+                >
+                  {item.description}
+                </motion.p>
               </div>
               <motion.div variants={aniItem}>
                 <Link
@@ -103,7 +108,7 @@ export default async function Projects() {
               >
                 <Image
                   src={item.featured_image.url}
-                  alt={item.featured_image.alt}
+                  alt={item.featured_image.alt || "Image"}
                   fill
                   className="object-cover hover:scale-105 transition-all ease-in-out"
                 />

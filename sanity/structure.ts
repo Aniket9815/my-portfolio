@@ -13,16 +13,3 @@ export const structure: StructureResolver = (S) =>
         .child(S.document().schemaType("profile").documentId("profile")),
       S.documentTypeListItem("project").title("Projects"),
     ]);
-// S.list()
-//   .title("Blog")
-//   .items([
-//     S.documentTypeListItem("post").title("Posts"),
-//     S.documentTypeListItem("category").title("Categories"),
-//     S.documentTypeListItem("author").title("Authors"),
-//     S.divider(),
-//     ...S.documentTypeListItems().filter(
-//       (item) =>
-//         item.getId() &&
-//         !["post", "category", "author"].includes(item.getId()!)
-//     ),
-//   ]);
