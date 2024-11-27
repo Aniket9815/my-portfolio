@@ -31,19 +31,22 @@ export default async function Skills() {
           real superpower behind my designs !
         </motion.h1>
 
-        <motion.h4
+        <motion.p
           initial="hidden"
           whileInView="visible"
           variants={aniItem}
           viewport={{ once: true }}
-          className="max-lg:text-base text-muted text-center leading-normal"
+          className="text-base lg:text-[32px] text-muted text-center leading-normal"
         >
           I&rsquo;m pretty skilled at
-        </motion.h4>
+        </motion.p>
 
         <Marquee autoFill gradient gradientColor="white" gradientWidth={40}>
           {profile.skills.map((item, index) => (
-            <div key={index} className="lg:w-[157px] lg:h-[72px] max-lg:py-[15px] max-lg:px-[22px] bg-primary-50 text-sm lg:text-base text-muted capitalize flex items-center justify-center rounded-full mx-4 lg:mx-8">
+            <div
+              key={index}
+              className="lg:w-[157px] lg:h-[72px] max-lg:py-[15px] max-lg:px-[22px] bg-primary-50 text-sm lg:text-base text-muted capitalize flex items-center justify-center rounded-full mx-4 lg:mx-8"
+            >
               {item}
             </div>
           ))}

@@ -75,8 +75,8 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
             size={20}
             color="#1C1B1F"
             toggled={isOpen}
-            onToggle={() => setIsOpen((isOpen) => !isOpen)}
-            label={isOpen ? "Close Menu" : "Open Menu"}            
+            toggle={setIsOpen}
+            label={isOpen ? "Close Menu" : "Open Menu"}
           />
         </div>
 
