@@ -10,14 +10,17 @@ export default async function Footer() {
   const profile = await getProfile();
   const socialLinks = [
     {
+      name: "Instagram",
       icon: FaInstagram,
       link: profile.social_links.instagram,
     },
     {
+      name: "LinkedIn",
       icon: FaLinkedinIn,
       link: profile.social_links.linkedin,
     },
     {
+      name: "Behance",
       icon: FaBehance,
       link: profile.social_links.behance,
     },
@@ -65,6 +68,7 @@ export default async function Footer() {
               <Link
                 key={index}
                 href={item.link}
+                aria-label={item.name}
                 className="w-[68px] py-2 border border-primary-400 rounded-[71px] hover:bg-[#101010]"
               >
                 <item.icon className="mx-auto text-2xl" />
