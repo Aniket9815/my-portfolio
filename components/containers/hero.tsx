@@ -47,8 +47,7 @@ export default async function Hero() {
             alt={profile.profile_image.alt || "Image"}
             fill
             priority
-            width={201}
-            height={101}
+            sizes="(max-width: 768px) 115.43px, 201px"
             className="object-cover object-center shadow-2xl shadow-black/15"
           />
         </div>

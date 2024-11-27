@@ -72,11 +72,13 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
       <div className="relative">
         <div className="bg-primary-50 w-[52px] h-[52px] rounded-full flex items-center justify-center">
           <Hamburger
+          
             size={20}
             color="#1C1B1F"
             toggled={isOpen}
             onToggle={() => setIsOpen((isOpen) => !isOpen)}
-            aria-label="Toggle Menu"
+            aria-label={isOpen ? "Close Menu" : "Open Menu"}
+            
           />
         </div>
 
