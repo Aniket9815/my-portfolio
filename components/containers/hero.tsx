@@ -71,7 +71,8 @@ export default async function Hero() {
           I&rsquo;m <span className="text-muted italic">Aniket</span> , a
           digital product <span className="text-muted italic">designer</span> ,
           I design experiences for{" "}
-          <span className="text-muted italic line-through">users</span> people
+          <span className="text-muted italic line-through">users</span>{" "}
+          <span className="italic">people</span>
         </motion.h1>
 
         {/* Short Description */}
