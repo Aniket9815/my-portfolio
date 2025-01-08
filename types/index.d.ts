@@ -2,7 +2,7 @@ declare type ProfileType = {
   _id: string;
   profile_image: {
     url: string;
-    alt: string;
+    alt?: string;
   };
   social_links: {
     behance: string;
@@ -20,7 +20,12 @@ declare type ProjectType = {
   title: string;
   category: string;
   description: string;
-  featured_image: { url: string; alt: string };
+  featured_content: {
+    content_type: "image" | "video";
+    alt: string;
+    video_url?: string;
+    image_url?: string;
+  };
   body: TypedObject | TypedObject[];
   creation_date: string;
 };

@@ -23,12 +23,6 @@ export const profileType = defineType({
       ],
     }),
     defineField({
-      name: "title",
-      title: "Title",
-      description: "Title to display on your Hero Section.",
-      type: "string",
-    }),
-    defineField({
       name: "resume",
       title: "Resume",
       description: "Upload your resume file.",

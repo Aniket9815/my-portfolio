@@ -21,9 +21,11 @@ export const PROJECTS_QUERY = defineQuery(`
         title,
         category,
         description,
-        "featured_image": {
-            "url": featured_image.asset->url,
-            "alt": featured_image.alt,
+        "featured_content": featured_content {
+            content_type,
+            alt,
+            "video_url": video.asset->url,
+            "image_url": image.asset->url,
         },
         creation_date
     }

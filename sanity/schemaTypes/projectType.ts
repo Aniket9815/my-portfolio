@@ -33,20 +33,48 @@ export const projectType = defineType({
       type: "text",
     }),
     defineField({
-      name: "featured_image",
-      title: "Featured Image",
-      description: "Featured image shown on your portfolio.",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
+      name: "featured_content",
+      title: "Featured Content",
+      description:
+        "Choose between an image or a video for your featured content.",
+      type: "object",
       fields: [
-        {
+        defineField({
+          name: "content_type",
+          title: "Content Type",
+          type: "string",
+          options: {
+            list: [
+              { title: "Image", value: "image" },
+              { title: "Video", value: "video" },
+            ],
+            layout: "radio",
+          },
+        }),
+        defineField({
+          name: "image",
+          title: "Featured Image",
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+          hidden: ({ parent }) => parent?.content_type !== "image",
+        }),
+        defineField({
+          name: "video",
+          title: "Featured Video",
+          type: "file",
+          options: {
+            accept: "video/*",
+          },
+          hidden: ({ parent }) => parent?.content_type !== "video",
+        }),
+        defineField({
           name: "alt",
           title: "Alternative Text",
-          description: "Important for SEO and accessiblity.",
+          description: "Important for SEO and accessibility.",
           type: "string",
-        },
+        }),
       ],
     }),
     defineField({

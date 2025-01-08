@@ -31,6 +31,8 @@ export default async function Projects() {
     },
   };
 
+  console.log(projects);
+
   return (
     <section id="work" className="container py-12">
       <motion.div
@@ -104,14 +106,27 @@ export default async function Projects() {
                 whileInView="visible"
                 variants={aniItem}
                 viewport={{ once: true }}
-                className="relative w-full h-[218px] lg:h-[605px] rounded-[20px] overflow-hidden"
+                className="relative w-full h-[400px] lg:h-[605px] rounded-[20px] overflow-hidden"
               >
-                <Image
-                  src={item.featured_image.url}
-                  alt={item.featured_image.alt || "Image"}
-                  fill
-                  className="object-cover hover:scale-105 transition-all ease-in-out"
-                />
+                {item.featured_content?.content_type === "image" &&
+                  item.featured_content.image_url && (
+                    <Image
+                      src={item.featured_content.image_url}
+                      alt={item.featured_content.alt || "Image"}
+                      fill
+                      sizes="100%"
+                      className="object-cover hover:scale-105 transition-all ease-in-out"
+                    />
+                  )}
+                {item.featured_content?.content_type === "video" && (
+                  <video
+                    src={item.featured_content.video_url}
+                    autoPlay
+                    loop
+                    muted
+                    className="w-full h-full object-cover hover:scale-105 transition-all ease-in-out"
+                  />
+                )}
               </motion.div>
             </Link>
           </div>
