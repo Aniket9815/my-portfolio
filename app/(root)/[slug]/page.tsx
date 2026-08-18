@@ -36,16 +36,50 @@ export default async function ProjectDescription({
 
   const myPortableTextComponents = {
     types: {
-      image: ({ value }: { value: { url: string; alt: string } }) => (
-        <Image
-          src={value.url}
-          alt={value.alt || "Image"}
-          width={1440}
-          height={500}
-          quality={100}
-          priority
-          className="w-full h-full lg:h-full rounded-[20px] object-cover"
-        />
+      image: ({
+        value,
+      }: {
+        value: { url: string; alt?: string; caption?: string };
+      }) => (
+        <figure className="my-6">
+          <Image
+            src={value.url}
+            alt={value.alt || "Image"}
+            width={1440}
+            height={500}
+            quality={100}
+            priority
+            className="w-full h-full lg:h-full rounded-[20px] object-cover"
+          />
+          {value.caption && (
+            <figcaption className="text-center text-sm text-muted mt-2">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      ),
+      video: ({
+        value,
+      }: {
+        value: { url: string; alt?: string; caption?: string };
+      }) => (
+        <figure className="my-6">
+          <video
+            src={value.url}
+            controls
+            playsInline
+            autoPlay
+            loop
+            muted
+            aria-label={value.alt || "Video"}
+            className="w-full rounded-[20px] object-cover"
+          />
+          {value.caption && (
+            <figcaption className="text-center text-sm text-muted mt-2">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
       ),
     },
   };

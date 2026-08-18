@@ -50,7 +50,14 @@ export const PROJECT_QUERY = defineQuery(`
                 alt,
                 caption,
             },
-            _type != "image" => @
+            _type == "video" => {
+                _key,
+                "url": asset->url,
+                _type,
+                alt,
+                caption,
+            },
+            _type != "image" && _type != "video" => @
         },
         creation_date
     }

@@ -1,4 +1,4 @@
-import { ProjectsIcon, ImageIcon } from "@sanity/icons";
+import { ProjectsIcon, ImageIcon, DocumentVideoIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const projectType = defineType({
@@ -80,7 +80,8 @@ export const projectType = defineType({
     defineField({
       name: "body",
       title: "Project Details",
-      description: "Content to describe your project. (Can import Images)",
+      description:
+        "Content to describe your project. (Can import Images and Videos)",
       type: "array",
       of: [
         {
@@ -121,6 +122,29 @@ export const projectType = defineType({
               name: "alt",
               title: "Alternative Text",
               description: "Important for SEO and accessiblity.",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "file",
+          name: "video",
+          title: "Video",
+          icon: DocumentVideoIcon,
+          options: {
+            accept: "video/*",
+          },
+          fields: [
+            {
+              name: "caption",
+              title: "Video Caption",
+              description: "Caption displayed below the video.",
+              type: "string",
+            },
+            {
+              name: "alt",
+              title: "Alternative Text",
+              description: "Important for SEO and accessibility.",
               type: "string",
             },
           ],
