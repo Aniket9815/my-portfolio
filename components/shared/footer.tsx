@@ -5,6 +5,7 @@ import { FaBehance, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
 import { buttonVariants } from "../ui/button";
 import { getProfile } from "@/actions/profile.actions";
+import UnderlineIcon from "@/components/icons/underline";
 
 export default async function Footer() {
   const profile = await getProfile();
@@ -46,9 +47,13 @@ export default async function Footer() {
             <div className="w-[39px] h-[1px] bg-gradient-to-r from-[#fafafa] to-primary-500" />
           </div>
           <h1 className="text-[28px] lg:text-[62px] font-normal font-instrument_serif leading-[80.6px] mt-6">
-            Let&rsquo;s <span className="italic text-primary-200">Connect</span>
+            Let&rsquo;s{" "}
+            <span className="relative inline-block text-[#F4805C]">
+              Connect
+              <UnderlineIcon className="absolute -bottom-1 md:-bottom-2 lg:-bottom-2.5 left-0 w-full pointer-events-none" />
+            </span>
           </h1>
-          <p className="text-sm lg:text-2xl text-primary-200">
+          <p className="text-sm lg:text-2xl text-primary-200 mt-2">
             Let&rsquo;s turn ideas into reality—drop me a line
           </p>
           <Link

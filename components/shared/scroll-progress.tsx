@@ -60,7 +60,7 @@ export default function ScrollProgress() {
           cx="25"
           cy="25"
           r="20"
-          stroke="#000000" // Change to preferred color
+          stroke="#F4805C"
           strokeWidth="6"
           fill="none"
           strokeDasharray={circumference}

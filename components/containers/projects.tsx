@@ -33,27 +33,8 @@ export default async function Projects() {
   };
 
   return (
-    <section id="work" className="container py-12">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={container}
-        viewport={{ once: true }}
-        className="flex items-center justify-between mb-[42px] lg:mb-[52px]"
-      >
-        <motion.h2 variants={aniItem} className="font-medium ">
-          Explore my
-          <br /> projects
-        </motion.h2>
-        <motion.p
-          variants={aniItem}
-          className="w-[42%] text-xs lg:text-xl text-muted"
-        >
-          &#x0022;Every project tells a story of creativity, purpose, and
-          innovation—here&#x275C;s how I bring ideas alive.&#x0022;
-        </motion.p>
-      </motion.div>
-      <div className="grid border-y divide-y py-[64px] lg:py-[90px]">
+    <section id="work" className="container pb-12">
+      <div className="grid divide-y border-b py-[64px] lg:py-[90px]">
         {projects.map((item) => (
           <div
             key={item._id}
