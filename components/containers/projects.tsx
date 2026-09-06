@@ -4,6 +4,7 @@ import React from "react";
 import { buttonVariants } from "../ui/button";
 import Image from "next/image";
 import * as motion from "framer-motion/client";
+import BurstIcon from "@/components/icons/burst";
 
 export default async function Projects() {
   const projects = await getProjects();
@@ -30,8 +31,6 @@ export default async function Projects() {
       },
     },
   };
-
-  console.log(projects);
 
   return (
     <section id="work" className="container py-12">
@@ -82,7 +81,15 @@ export default async function Projects() {
                     {item.category}
                   </motion.p>
                 </div>
-                <motion.h3 variants={aniItem}>{item.title}</motion.h3>
+                <motion.h3 variants={aniItem} className="relative">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-[20px] md:-left-[24px] lg:-left-8 -top-[10px] md:-top-[14px] lg:-top-1 pointer-events-none select-none"
+                  >
+                    <BurstIcon className="w-[20px] h-[27px] md:w-[24px] md:h-[33px] lg:w-[29px] lg:h-[40px]" />
+                  </span>
+                  {item.title}
+                </motion.h3>
                 <motion.p
                   variants={aniItem}
                   className="max-lg:text-sm text-primary-300"

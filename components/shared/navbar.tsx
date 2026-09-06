@@ -63,7 +63,7 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
 
   return (
     <nav
-      className={`${!navAtTop && "bg-white shadow-lg px-6 rounded-full"} flex items-center justify-between my-3 py-2 transition-all duration-300 ease-in-out`}
+      className={`${!navAtTop && "bg-background shadow-lg px-6 rounded-full"} flex items-center justify-between my-3 py-2 transition-all duration-300 ease-in-out`}
     >
       <Link href="/" className="text-2xl font-instrument_serif italic">
         Aniket
