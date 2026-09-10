@@ -48,7 +48,7 @@ export default function ProjectsList({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative w-full bg-[#F3E6E2] rounded-[28px] sm:rounded-[34px] lg:rounded-[40px] border border-[#E8D9D4] p-6 sm:p-8 lg:p-10 xl:p-12 shadow-[0_10px_35px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-10 min-h-[460px] lg:min-h-[500px]"
+                className="relative w-full bg-[#F3E6E2] rounded-[28px] sm:rounded-[34px] lg:rounded-[40px] p-6 sm:p-8 lg:p-10 xl:p-12 shadow-[0_10px_35px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-10 min-h-[460px] lg:min-h-[500px]"
               >
                 {/* Left Column */}
                 <div className="w-full lg:w-[48%] flex flex-col justify-center self-stretch py-2 lg:py-4">
