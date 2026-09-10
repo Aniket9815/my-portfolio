@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "12.5rem",
+      padding: "10rem",
       screens: {
         "2xl": "1440px",
       },
@@ -35,6 +35,10 @@ const config: Config = {
       fontFamily: {
         outfit: "var(--font-outfit)",
         instrument_serif: "var(--font-instrument_serif)",
+        belgiano_serif: "var(--font-belgiano_serif)",
+        inter: "var(--font-inter)",
+        friendship: "var(--font-friendship)",
+        friendsip: "var(--font-friendship)",
       },
     },
   },

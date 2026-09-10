@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { fontInstrumentSerif, fontOutfit } from "../fonts";
+import {
+  fontBelgianoSerif,
+  fontInstrumentSerif,
+  fontOutfit,
+  fontInter,
+  fontFriendship,
+} from "../fonts";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
-        className={`${fontOutfit.variable} ${fontInstrumentSerif.variable} antialiased`}
+        className={`${fontOutfit.variable} ${fontInstrumentSerif.variable} ${fontBelgianoSerif.variable} ${fontInter.variable} ${fontFriendship.variable} antialiased`}
       >
         <Header />
         {children}

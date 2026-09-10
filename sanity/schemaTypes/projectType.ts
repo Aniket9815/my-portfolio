@@ -1,12 +1,15 @@
 import { ProjectsIcon, ImageIcon, DocumentVideoIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export const projectType = defineType({
   name: "project",
   title: "Projects",
   type: "document",
   icon: ProjectsIcon,
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: "project" }),
     defineField({
       name: "title",
       title: "Project Title",
@@ -156,6 +159,27 @@ export const projectType = defineType({
       title: "Project Creation Date",
       description: "Project creation date.",
       type: "date",
+    }),
+    defineField({
+      name: "is_protected",
+      title: "Password Protected?",
+      description: "Enable if this project requires a password to view.",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
+      name: "password",
+      title: "Project Password",
+      description: "Enter the password required to open this project.",
+      type: "string",
+      hidden: ({ document }) => !document?.is_protected,
+      validation: (Rule) =>
+        Rule.custom((password, context) => {
+          if (context.document?.is_protected && !password) {
+            return "Password is required when project is password protected.";
+          }
+          return true;
+        }),
     }),
   ],
 });

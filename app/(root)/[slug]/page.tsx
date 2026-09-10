@@ -1,8 +1,11 @@
 import { getProjectBySlug, getProjects } from "@/actions/project.actions";
+import { isProjectUnlocked } from "@/actions/project-auth.actions";
+import { notFound } from "next/navigation";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import * as motion from "framer-motion/client";
 import ScrollProgress from "@/components/shared/scroll-progress";
+import ProjectUnlock from "@/components/shared/project-unlock";
 
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
@@ -20,6 +23,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const project: ProjectType = await getProjectBySlug((await params).slug);
+  if (!project) {
+    return {
+      title: "404 - Page Not Found",
+    };
+  }
   return {
     title: project?.title,
   };
@@ -30,9 +38,27 @@ export default async function ProjectDescription({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const project: ProjectType = await getProjectBySlug((await params).slug);
+  const slug = (await params).slug;
+  const project: ProjectType = await getProjectBySlug(slug);
 
-  if (!project) return null;
+  if (!project) {
+    notFound();
+  }
+
+  if (project.is_protected) {
+    const isUnlocked = await isProjectUnlocked(slug);
+    if (!isUnlocked) {
+      return (
+        <ProjectUnlock
+          project={{
+            slug: project.slug,
+            title: project.title,
+            category: project.category,
+          }}
+        />
+      );
+    }
+  }
 
   const myPortableTextComponents = {
     types: {

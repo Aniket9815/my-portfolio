@@ -28,4 +28,5 @@ declare type ProjectType = {
   };
   body: TypedObject | TypedObject[];
   creation_date: string;
+  is_protected?: boolean;
 };

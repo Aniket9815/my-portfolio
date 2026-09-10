@@ -1,29 +1,27 @@
-import { buttonVariants } from "../ui/button";
 import Link from "next/link";
 
 export default function CTAButtons({
   resume,
-  email,
 }: {
   resume: string;
-  email: string;
 }) {
   return (
-    <div className="flex gap-5">
+    <div className="flex items-center gap-4">
       <Link
         href={resume}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${buttonVariants({ variant: "outline" })} w-[128px] lg:w-[166px] h-[56px] lg:h-[69px] border-primary-700`}
+        className="w-[135px] lg:w-[166px] h-[48px] lg:h-[52px] rounded-full border border-black text-black font-medium text-sm lg:text-base flex items-center justify-center hover:bg-black/5 transition-colors text-center"
       >
         Resume
       </Link>
       <Link
-        href={`mailto:${email}`}
-        className={`${buttonVariants()} w-[128px] lg:w-[166px] h-[56px] lg:h-[69px]`}
+        href="#work"
+        className="w-[135px] lg:w-[166px] h-[48px] lg:h-[52px] rounded-full bg-black text-white font-medium text-sm lg:text-base flex items-center justify-center hover:bg-black/85 transition-colors shadow-sm text-center"
       >
-        Let&rsquo;s connect
+        View my work
       </Link>
     </div>
   );
 }
+

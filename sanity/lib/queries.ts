@@ -15,7 +15,7 @@ export const PROFILE_QUERY = defineQuery(`
 `);
 
 export const PROJECTS_QUERY = defineQuery(`
-    *[_type=='project']{
+    *[_type=='project'] | order(orderRank asc, creation_date desc){
         _id,
         "slug":slug.current,
         title,
@@ -27,7 +27,8 @@ export const PROJECTS_QUERY = defineQuery(`
             "video_url": video.asset->url,
             "image_url": image.asset->url,
         },
-        creation_date
+        creation_date,
+        "is_protected": coalesce(is_protected, false)
     }
 `);
 
@@ -59,6 +60,14 @@ export const PROJECT_QUERY = defineQuery(`
             },
             _type != "image" && _type != "video" => @
         },
-        creation_date
+        creation_date,
+        "is_protected": coalesce(is_protected, false)
+    }
+`);
+
+export const PROJECT_PASSWORD_QUERY = defineQuery(`
+    *[_type=='project' && slug.current == $slug][0]{
+        "is_protected": coalesce(is_protected, false),
+        password
     }
 `);

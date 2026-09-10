@@ -58,6 +58,12 @@
   }
 }
 
+/* @media (min-width: 1024px) {
+  .container {
+    @apply px-[10rem];
+  }
+} */
+
 @media (max-width: 1024px) {
   .container {
     @apply px-[5rem];

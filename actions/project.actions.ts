@@ -5,6 +5,7 @@ export async function getProjects(): Promise<ProjectType[]> {
   return await sanityFetch({
     query: PROJECTS_QUERY,
     tags: ["project"],
+    revalidate: 0,
   });
 }
 
@@ -13,5 +14,6 @@ export async function getProjectBySlug(slug: string): Promise<ProjectType> {
     query: PROJECT_QUERY,
     params: { slug },
     tags: ["project", `project-${slug}`],
+    revalidate: 0,
   });
 }

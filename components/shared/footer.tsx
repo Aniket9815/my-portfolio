@@ -41,12 +41,12 @@ export default async function Footer() {
         <div className="text-center">
           <div className="flex items-center justify-center gap-4">
             <div className="w-[39px] h-[1px] bg-gradient-to-r from-primary-300 to-[#fafafa]" />
-            <p className="text-xl lg:text-[32px] text-primary-200 font-instrument_serif italic">
+            <p className="text-xl lg:text-[32px] text-primary-200 font-belgiano_serif italic">
               Reach me anytime
             </p>
             <div className="w-[39px] h-[1px] bg-gradient-to-r from-[#fafafa] to-primary-500" />
           </div>
-          <h1 className="text-[28px] lg:text-[62px] font-normal font-instrument_serif leading-[80.6px] mt-6">
+          <h1 className="text-[28px] lg:text-[62px] font-normal font-belgiano_serif leading-[80.6px] mt-6">
             Let&rsquo;s{" "}
             <span className="relative inline-block text-[#F4805C]">
               Connect

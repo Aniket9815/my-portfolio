@@ -1,125 +1,32 @@
 import { getProjects } from "@/actions/project.actions";
-import Link from "next/link";
+import { isProjectUnlocked } from "@/actions/project-auth.actions";
 import React from "react";
-import { buttonVariants } from "../ui/button";
-import Image from "next/image";
-import * as motion from "framer-motion/client";
-import BurstIcon from "@/components/icons/burst";
+import ProjectsList from "./projects-list";
 
 export default async function Projects() {
   const projects = await getProjects();
 
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const aniItem = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: "easeIn",
-      },
-    },
-  };
+  // Check which protected projects are already unlocked for the user
+  const initialUnlocked: Record<string, boolean> = {};
+  for (const project of projects) {
+    if (project.is_protected) {
+      initialUnlocked[project.slug] = await isProjectUnlocked(project.slug);
+    }
+  }
 
   return (
-    <section id="work" className="container pb-12">
-      <div className="grid divide-y border-b py-[64px] lg:py-[90px]">
-        {projects.map((item) => (
-          <div
-            key={item._id}
-            className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-24 py-[64px] first:pt-0 last:pb-0 lg:py-[90px] lg:first:pt-0 lg:last:pb-0"
-          >
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={container}
-              viewport={{ once: true }}
-              className="w-full lg:w-1/2 flex flex-col max-md:items-end max-md:justify-between gap-4 lg:gap-12"
-            >
-              <div className="space-y-2">
-                <div>
-                  <motion.p
-                    variants={aniItem}
-                    className="text-xs lg:text-base text-primary-500"
-                  >
-                    {new Date(item.creation_date).getFullYear()}
-                  </motion.p>
-                  <motion.p
-                    variants={aniItem}
-                    className="text-xs lg:text-[32px] text-muted lg:leading-[42px]"
-                  >
-                    {item.category}
-                  </motion.p>
-                </div>
-                <motion.h3 variants={aniItem} className="relative">
-                  <span
-                    aria-hidden="true"
-                    className="absolute -left-[20px] md:-left-[24px] lg:-left-8 -top-[10px] md:-top-[14px] lg:-top-1 pointer-events-none select-none"
-                  >
-                    <BurstIcon className="w-[20px] h-[27px] md:w-[24px] md:h-[33px] lg:w-[29px] lg:h-[40px]" />
-                  </span>
-                  {item.title}
-                </motion.h3>
-                <motion.p
-                  variants={aniItem}
-                  className="max-lg:text-sm text-primary-300"
-                >
-                  {item.description}
-                </motion.p>
-              </div>
-              <motion.div variants={aniItem}>
-                <Link
-                  href={`/${item.slug}`}
-                  className={`${buttonVariants()} w-[91px] h-[37px] lg:w-[146px] lg:h-[52px] text-xs lg:text-base`}
-                >
-                  View Project
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            <Link href={`/${item.slug}`} className="w-full lg:w-[510px]">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={aniItem}
-                viewport={{ once: true }}
-                className="relative w-full h-[400px] lg:h-[605px] rounded-[20px] overflow-hidden"
-              >
-                {item.featured_content?.content_type === "image" &&
-                  item.featured_content.image_url && (
-                    <Image
-                      src={item.featured_content.image_url}
-                      alt={item.featured_content.alt || "Image"}
-                      fill
-                      sizes="100%"
-                      className="object-cover hover:scale-105 transition-all ease-in-out"
-                    />
-                  )}
-                {item.featured_content?.content_type === "video" && (
-                  <video
-                    src={item.featured_content.video_url}
-                    autoPlay
-                    loop
-                    muted
-                    className="w-full h-full object-cover hover:scale-105 transition-all ease-in-out"
-                  />
-                )}
-              </motion.div>
-            </Link>
-          </div>
-        ))}
+    <section id="work" className="container py-12 lg:py-20">
+      {/* Section Header */}
+      <div className="flex items-center justify-center gap-4 sm:gap-6 mb-10 lg:mb-16">
+        <div className="w-12 sm:w-20 lg:w-28 h-[1px] bg-gradient-to-r from-transparent to-[#F4805C]/60" />
+        <h2 className="text-[#F4805C] font-outfit text-[22px] sm:text-[26px] lg:text-[30px] leading-normal font-medium font-[500] tracking-normal">
+          Explore my projects
+        </h2>
+        <div className="w-12 sm:w-20 lg:w-28 h-[1px] bg-gradient-to-l from-transparent to-[#F4805C]/60" />
       </div>
+
+      {/* Projects List with Overlay Dialog Support */}
+      <ProjectsList projects={projects} initialUnlocked={initialUnlocked} />
     </section>
   );
 }

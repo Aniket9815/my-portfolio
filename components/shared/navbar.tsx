@@ -61,9 +61,9 @@ export default function Navbar({ profile }: { profile: ProfileType }) {
   };
 
   const links = [
-    { label: "Work", link: "#work" },
-    { label: "Personal work", link: "#work" },
-    { label: "Contact", link: "#contact" },
+    { label: "Work", link: "/#work" },
+    { label: "Personal work", link: "/personal-work" },
+    { label: "Contact", link: "/#contact" },
   ];
 
   const socialLinks = [
