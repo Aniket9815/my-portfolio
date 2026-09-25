@@ -5,5 +5,6 @@ export async function getProfile(): Promise<ProfileType> {
   return await sanityFetch({
     query: PROFILE_QUERY,
     tags: ["profile"],
+    revalidate: 0,
   });
 }

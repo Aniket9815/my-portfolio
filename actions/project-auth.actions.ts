@@ -10,6 +10,7 @@ export async function verifyProjectPassword(slug: string, enteredPassword: strin
       query: PROJECT_PASSWORD_QUERY,
       params: { slug },
       tags: [`project-${slug}`],
+      revalidate: 0,
     })) as {
       is_protected: boolean;
       password?: string;
